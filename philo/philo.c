@@ -6,7 +6,7 @@
 /*   By: ale-boud <ale-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:00:24 by ale-boud          #+#    #+#             */
-/*   Updated: 2023/10/10 10:52:59 by ale-boud         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:05:58 by ale-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,15 @@ void	philo_init(t_philoctx *ctx, int argc, char **argv)
 must be an natural integer");
 	else
 		ctx->ttoeach = -1;
-	ctx->write = NULL;
+	ctx->serr = NULL;
+}
+
+void	philo_create(t_philoctx *ctx)
+{
+	(void)(ctx);
+}
+
+void	philo_destroy(t_philoctx *ctx)
+{
+	(void)(ctx);
 }

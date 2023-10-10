@@ -6,7 +6,7 @@
 /*   By: ale-boud <ale-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:21:18 by ale-boud          #+#    #+#             */
-/*   Updated: 2023/10/10 10:52:54 by ale-boud         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:06:50 by ale-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,32 @@ typedef struct s_philoctx
 	time_t			ttoeat;
 	time_t			ttosleep;
 	int				ttoeach;
-	pthread_mutex_t	*write;
+	int				err;
+	const char		*serr;
+	pthread_t		*threads;
 }				t_philoctx;
 
 /* PHILO */
 
 void			philo_init(t_philoctx *ctx, int argc, char **argv);
+void			philo_create(t_philoctx *ctx);
+void			philo_destroy(t_philoctx *ctx);
 
 noreturn void	error(t_philoctx *ctx, const char *s);
+noreturn void	thread_error(t_philoctx *ctx, const char *s);
 
 /* LOG */
 
+typedef enum e_logtype
+{
+	FORK_TAKEN,
+	EATING,
+	SLEEPING,
+	THINKING,
+	DIED
+}				t_logtype;
+
+void			philo_log(t_philoctx *ctx, time_t t, int nb, t_logtype type);
 
 /* UTILS */
 
