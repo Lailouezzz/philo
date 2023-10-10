@@ -6,23 +6,11 @@
 /*   By: ale-boud <ale-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:46:44 by ale-boud          #+#    #+#             */
-/*   Updated: 2023/10/09 13:54:49 by ale-boud         ###   ########.fr       */
+/*   Updated: 2023/10/10 10:53:04 by ale-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-typedef enum e_args
-{
-	PROG_NAME,
-	PROG_NBPHILO,
-	PROG_TTODIE,
-	PROG_TTOEAT,
-	PROG_TTOSLEEP,
-	PROG_TTOEACHP,
-	PROG__MIN=PROG_TTOSLEEP,
-	PROG__MAX=PROG_TTOEACHP,
-}	t_args;
 
 noreturn void	help(char **argv)
 {
@@ -35,7 +23,10 @@ time_to_sleep [number_of_times_each_philosopher_must_eat]\n");
 
 int	main(int argc, char **argv)
 {
+	t_philoctx	ctx;
+
 	if (argc < PROG__MIN || argc > PROG__MAX)
 		help(argv);
+	philo_init(&ctx, argc, argv);
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: ale-boud <ale-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:53:55 by ale-boud          #+#    #+#             */
-/*   Updated: 2023/10/09 13:17:47 by ale-boud         ###   ########.fr       */
+/*   Updated: 2023/10/10 10:42:04 by ale-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,38 @@ int	ft_strlen(const char *s)
 	while (s[k] != '\0')
 		++k;
 	return (k);
+}
+
+int	ft_atot(const char *s, time_t *t)
+{
+	time_t	k;
+
+	if (*s == '\0')
+		return (0);
+	k = 0;
+	while (*s >= '0' && *s <= '9')
+	{
+		k *= 10;
+		k += *s - '0';
+		++s;
+	}
+	*t = k;
+	return (*s == '\0');
+}
+
+int	ft_atoui(const char *s, int *n)
+{
+	int	k;
+
+	if (*s == '\0')
+		return (0);
+	k = 0;
+	while (*s >= '0' && *s <= '9')
+	{
+		k *= 10;
+		k += *s - '0';
+		++s;
+	}
+	*n = k;
+	return (*s == '\0');
 }

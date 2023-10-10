@@ -6,7 +6,7 @@
 #    By: ale-boud <ale-boud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 23:28:51 by ale-boud          #+#    #+#              #
-#    Updated: 2023/10/09 13:12:39 by ale-boud         ###   ########.fr        #
+#    Updated: 2023/10/10 10:46:16 by ale-boud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ CC := gcc
 CWARN := all extra
 CWARN := $(CWARN:%=-W%)
 
-CFLAGS := $(CWARN) -pthread
+CFLAGS := $(CWARN) -pthread -g3
 
 # Preprocessor flag
 
@@ -46,7 +46,7 @@ LDLIBS :=
 NAME := philo
 
 SRC_DIR := ./
-SRCS := utils.c main.c philo.c
+SRCS := utils.c main.c philo.c error.c
 SRCS := $(SRCS:%=$(SRC_DIR)/%)
 OBJ_DIR := ./build
 OBJS := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
