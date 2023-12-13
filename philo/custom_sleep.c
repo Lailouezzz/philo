@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   custom_sleep.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ale-boud <ale-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 10:36:02 by ale-boud          #+#    #+#             */
-/*   Updated: 2023/12/13 18:45:46 by ale-boud         ###   ########.fr       */
+/*   Created: 2023/12/13 19:54:20 by ale-boud          #+#    #+#             */
+/*   Updated: 2023/12/13 22:03:25 by ale-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "philo.h"
 
-noreturn void	error(t_philo_ctx *ctx, const char *s)
+void	custom_sleep(t_philo *philo, time_t duration)
 {
-	philo_destroy(ctx);
-	ft_putstr_fd(STDERR_FILENO, ctx->pn);
-	ft_putstr_fd(STDERR_FILENO, ": ");
-	ft_putstr_fd(STDERR_FILENO, s);
-	ft_putstr_fd(STDERR_FILENO, "\n");
-	exit(EXIT_FAILURE);
+	time_t	now;
+
+	now = ft_time_ms();
+	while (now + duration > ft_time_ms())
+	{
+		if (!philo_is_running(philo->ctx))
+			break ;
+		usleep(((t_philo_ctx *)philo->ctx)->nb * 2);
+	}
 }

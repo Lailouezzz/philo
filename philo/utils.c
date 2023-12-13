@@ -6,13 +6,13 @@
 /*   By: ale-boud <ale-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:53:55 by ale-boud          #+#    #+#             */
-/*   Updated: 2023/10/10 10:42:04 by ale-boud         ###   ########.fr       */
+/*   Updated: 2023/12/13 19:11:37 by ale-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-time_t	ft_timems(void)
+time_t	ft_time_ms(void)
 {
 	static time_t	initime = -1;
 	struct timeval	t;
@@ -55,9 +55,9 @@ int	ft_atot(const char *s, time_t *t)
 	return (*s == '\0');
 }
 
-int	ft_atoui(const char *s, int *n)
+int	ft_atoui(const char *s, unsigned int *n)
 {
-	int	k;
+	unsigned int	k;
 
 	if (*s == '\0')
 		return (0);
