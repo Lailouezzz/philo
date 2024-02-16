@@ -6,7 +6,7 @@
 /*   By: ale-boud <ale-boud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:29:32 by ale-boud          #+#    #+#             */
-/*   Updated: 2023/12/13 22:45:05 by ale-boud         ###   ########.fr       */
+/*   Updated: 2024/02/16 17:07:41 by ale-boud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static void	_philo_died(t_philo_ctx *ctx)
 			{
 				philo_set_running(ctx, 0);
 				philo_log(ctx, k, LOG_DIED);
-				exit(EXIT_FAILURE);
 				pthread_mutex_unlock(&ctx->philos[k].eating);
 				break ;
 			}
